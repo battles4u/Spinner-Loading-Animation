@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.spinner1 {
+  width: 150px;
+  aspect-ratio: 1;
+  border: 20px solid aqua;
+  border-right-color: orange;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+.spinner2 {
+  width: 150px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 20px solid #0000;
+  border-right-color: orange;
+  position: relative;
+  animation: spinner 1s linear infinite;
+}
+.spinner2::before,
+.spinner2::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: -20px;
+  border: inherit;
+  animation: inherit;
+  animation-duration: 2s;
+}
+.spinner2:after {
+  animation-duration: 4s;
+}
+
+.spinner3 {
+  width: 150px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, orange 95%, #0000) 50% 1px/20px
+      20px no-repeat,
+    radial-gradient(farthest-side, #0000 calc(100% - 22px), aqua 0);
+  animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
